@@ -4,16 +4,21 @@
 /**
  * main - prints the size of various types based on 
  * the computer it is compiled an run.
- * Return: ALways 0.
+ * Return: 0 (success) 
  */
 
 int main (void)
 {
-	printf("Size of char: %zu byte(s)\n", sizeof(char));
-	printf("Size of int: %zu byte(s)\n", sizeof(int));
-	fintf("Size of long int: %zu byte(s)\n",sizeof(long int));
-	fintf("Size of long long int: %zu byte(s)\n",sizeof(long long int));
-	fintf("Size of a float: %zu byte(s)\n",sizeof(float));
-	return (0);
+	char a;
+	int b;
+	long int c;
+	long long int d;
+	float f;
+printf("size of char: %lu byte(s)\n"(unsigned long)sizeof(a));
+printf("size of int: %lu byte(s)\n"(unsigned long)sizeof(b));
+printf("size of long int: %lu byte(s)\n"(unsigned long)sizeof(c));
+printf("size of lomg long int: %lu byte(s)\n"(unsigned long)sizeof(d));
+printf("size of float: %lu byte(s)\n"(unsigned long)sizeof(f));
+return (0);
 }
 

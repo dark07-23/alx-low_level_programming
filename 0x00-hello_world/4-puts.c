@@ -4,7 +4,7 @@
  * main - prints "Programming is like building a multilingual puzzle
  * followed by a new line.
  * should end with value
- * Return: Always 0.
+ * Return: Always 0 (success)
  */
 
 int main(void)
