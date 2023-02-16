@@ -5,6 +5,8 @@
  * followed by a new line.
  * should end with value 0
  * Return: Always 0
+ */
+
 int main (void)
 
 {
