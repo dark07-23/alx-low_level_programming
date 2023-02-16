@@ -1,9 +1,9 @@
 #include <stdio.h>
 
 /**
- * main puts Programming is like building a multilingual puzzle
+ * main - prints "Programming is like building a multilingual puzzle
  * followed by a new line.
- * should end with value 0
+ * should end with value
  * Return: Always 0.
  */
 
