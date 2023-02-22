@@ -1,25 +1,21 @@
 #include "main.h"
 
 /**
- * Print_alphabet_x10 - make alphabet x10 times
- * Return: void
+ * print_alphabet_x10 - prints 10 times the alphabet
+ *
+ * Return: On success 1.
  */
-void Print_alphabet_x10(void)
+void print_alphabet_x10(void)
 {
-	char ch;
-	int i = 0;
+	int letter, counter = 0;
 
-	i = 0;
-	
-	while (i < 10)
+	while (counter < 10)
 	{
-		ch = 'a';
-		while (ch <= 'z')
-		{
-			_putchar(ch);
-			ch++;
-		}
+		for (letter = 'a'; letter <= 'z'; letter++)
+	{
+		_putchar(letter);
+	}
+		counter++;
 		_putchar('\n');
-		i++;
 	}
 }
