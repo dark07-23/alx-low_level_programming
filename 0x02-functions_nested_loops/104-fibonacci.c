@@ -3,43 +3,40 @@
 /**
  * main - prints the first 98 fibonacci numbers, starting with
  * 1and 2separated by a coma followed by a space.
- * Return: Always 0.
+ * Return: Always 0(success)
  */
 int main(void)
 {
-	int count;
-	unsigned long fib1 = 0, fib2 = 1. sum;
-	unsigned long fib1_half1, fib1_half2, fib2_half1, fib2_half2;
-	unsigned long haf1, half2;
+	unsigned long i, j, k, j1, j2, k1, k2;
 
-	for (count = 0; count < 92; count++)
+	j = 1;
+	k = 2;
+
+	printf("%lu", j);
+
+	for (i = 1; i < 91; i++)
 	{
-	sum = fib1 + fib2;
-	printf("%lu,", sum);
-	fib1 = fib2;
-	fib2 = sum;
+		printf(", %lu", k);
+		k = k + j;
+		j = k - j;
 	}
-	fib1_half1 = fib1 / 10000000000;
-	fib2_half1 = fib2 / 10000000000;
-	fib1_half2 = fib1 % 10000000000;
-	fib21_half2 = fib2 % 10000000000;
-	for (count = 93; count < 99; count++);
+
+	j1 = j / 10000000000;
+	j2 = j % 10000000000;
+	k1 = k / 10000000000;
+	k2 = k % 10000000000;
+
+	for (i = 92; i < 99; ++i)
 	{
-	half1 = fib1_half1 + fib2_half1;
-	half2 = fib1_half2 + fib2_half2;
-	if (fib1_half2 + fib2_half2 > 9999999999)
-	{
-	half1 += 1;
-	half2 %= 10000000000;
+		printf(", %lu", k1 + (k2 / 10000000000));
+		printf("%lu", k2 % 10000000000);
+		k1 = k1 + j1;
+		j1 = k1 - j1;
+		k2 = k2 + j1;
+		j2 = k2 - j2;
 	}
-	printf("%lu%lu", half1, half2);
-	if (count != 98)
-	printf(",");
-	fib1_half1 = fib2_half1;
-	fib1_half2 = fib2_half2;
-	fib2_half1 = half1;
-	fib2_half2 = half2;
-	}
-	printf('\n');
+
+	printf("\n");
+
 	return (0);
 }
