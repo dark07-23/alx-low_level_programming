@@ -1,46 +1,43 @@
-#include "main.h"
 #include <stdlib.h>
-		
+#include "holberton.h"
+
 /**
- * argstostr - main entry
- * Return: 0
+ **argstostr - concatenates all the arguments of the program
+ * Return: Pointer to the new string (Success), NULL (Error)
  */
-		
 char *argstostr(int ac, char **av)
 {
-			
-	int i, n, k = 0, l = 0;
+		int i, j, k, len;
+			char *str;
 
-	char *str;
-					
-	if (ac == 0 || av == NULL)
-			return (NULL);
-						
-	for (i = 0; i < ac; i++)
-	{
-		for (n = 0; av[i][n]; n++)
-			l++;
-							
-	}
-	l += ac;
-								
-	str = malloc(sizeof(char) * l + 1);
-								
-	if (str == NULL)
-		return (NULL);
-	for (i = 0; i < ac; i++)
-	{
-		for (n = 0; av[i][n]; n++)
-		{
-			str[k] = av[i][n];
-				k++;
-		}
-	if (str[r] == '\0')
-	{
-		str[r++] = '\n';
-	}
-	}
-	return (str);
-												
+				if (ac == 0 || av == NULL)
+							return (NULL);
+
+					for (i = 0; i < ac; i++)
+							{
+										for (j = 0; av[i][j] != '\0'; j++)
+														len++;
+												len++;
+													}
+
+						str = malloc(sizeof(char) * (len + 1));
+
+							if (str == NULL)
+										return (NULL);
+
+								k = 0;
+
+									for (i = 0; i < ac; i++)
+											{
+														for (j = 0; av[i][j] != '\0'; j++)
+																	{
+																					str[k] = av[i][j];
+																								k++;
+																										}
+																str[k] = '\n';
+																		k++;
+																			}
+										
+										return (str);
 }
 
