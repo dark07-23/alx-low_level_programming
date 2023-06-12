@@ -1,26 +1,19 @@
 #include "main.h"
-		
 #include <stdlib.h>
 		
 /**
- * 		
- * 		 * alloc_grid - nested loop to make grid
+ * alloc_grid - nested loop to make grid
  * 		 		
- * 		 		 * @width: width input
- * 		 		 		
- * 		 		 		 * @height: height input
- * 		 		 		 		
- * 		 		 		 		 * Return: pointer to 2 dim. array
+ * Return: pointer to 2 dim. array
  * 		 		 		 		 		
- * 		 		 		 		 		 */
+ */
 		
 int **alloc_grid(int width, int height)
-			
 {
 			
-		int **mee;
-				
-			int x, y;
+		int **h;
+			
+			int m, n;
 					
 
 					
@@ -30,35 +23,35 @@ int **alloc_grid(int width, int height)
 						
 
 						
-					mee = malloc(sizeof(int *) * height);
+					h = malloc(sizeof(int *) * height);
 							
 
 							
-						if (mee == NULL)
+						if (h == NULL)
 									
 									return (NULL);
 								
 
 								
-							for (x = 0; x < height; x++)
+							for (m = 0; m < height; m++)
 										
 									{
 												
-												mee[x] = malloc(sizeof(int) * width);
+											h[m] = malloc(sizeof(int) * width);
 														
 
 														
-														if (mee[x] == NULL)
+													if (h[m] == NULL)
 																	
 																	{
 																				
-																					for (; x >= 0; x--)
+					for (; m >= 0; m--)
 																								
-																										free(mee[x]);
+											free(h[m]);
 																							
 
 																							
-																								free(mee);
+								free(h);
 																										
 																											return (NULL);
 																													
@@ -68,19 +61,19 @@ int **alloc_grid(int width, int height)
 									
 
 									
-								for (x = 0; x < height; x++)
+								for (m = 0; m < height; m++)
 											
 										{
 													
-													for (y = 0; y < width; y++)
+													for (n = 0; n < width; n++)
 																
-																	mee[x][y] = 0;
+																	h[m][n] = 0;
 															
 														}
 										
 
 										
-									return (mee);
+									return (h);
 											
 }
 
