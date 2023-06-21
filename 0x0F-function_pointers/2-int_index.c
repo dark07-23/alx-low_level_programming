@@ -10,17 +10,21 @@
  * on each element. If the condition is satisfied, the function returns the index of
  * the element. If no element satisfies the condition, it returns -1.
  */
-int int_index(int *array, int size, int (*cmp)(int))
-{
-	if (array == NULL || size <= 0 || cmp == NULL)
-		return -1;
 
-	for (int i = 0; i < size; i++)
+	int int_index(int *array, int size, int (*cmp)(int))
 		{
-			if (cmp(array[i]))
-				return i;
-	 	}	
+					int i;
 
-	return -1;
-}
+
+							if (array == NULL || size <= 0 || cmp == NULL)
+											return (-1);
+
+
+									for (i = 0; i < size; i++)
+												{
+																if (cmp(array[i]))
+																					return (i);
+									}
+											return (-1);
+												}
 
