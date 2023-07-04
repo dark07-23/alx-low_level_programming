@@ -1,67 +1,77 @@
 #include "lists.h"
 #include <stdio.h>
 
+size_t looped_listint_len(const listint_t *head);
+size_t print_listint_safe(const listint_t *head);
 
 size_t looped_listint_len(const listint_t *head)
 {
-	    const listint_t *tortoise, *hare;
-	        size_t nodes = 0;
+	 const listint_t *tortoise, *hare;
+	  size_t nodes = 1;
 
-		    if (head == NULL || head->next == NULL)
-			            return 0;
+	   if (head == NULL || head->next == NULL)
+		    return (0);
 
-		        tortoise = head;
-			    hare = head;
+	    tortoise = head->next;
+	     hare = (head->next)->next;
 
-			        while (hare && hare->next)
-					    {
-						            tortoise = tortoise->next;
-							            hare = hare->next->next;
+	      while (hare)
+		       {
+			        if (tortoise == hare)
+					 {
+						  tortoise = head;
+						   while (tortoise != hare)
+							    {
+								     nodes++;
+								      tortoise = tortoise->next;
+								       hare = hare->next;
+								        }
 
-								            if (tortoise == hare)
-										            {
-												                nodes = 1;
-														            hare = hare->next;
+						    tortoise = tortoise->next;
+						     while (tortoise != hare)
+							      {
+								       nodes++;
+								        tortoise = tortoise->next;
+									 }
 
-															                while (tortoise != hare)
-																		            {
-																				                    nodes++;
-																						                    hare = hare->next;
-																								                }
+						      return (nodes);
+						       }
 
-																	            return nodes;
-																		            }
-									        }
+				 tortoise = tortoise->next;
+				  hare = (hare->next)->next;
+				   }
 
-				    return 0;
+	       return (0);
 }
 
 
 size_t print_listint_safe(const listint_t *head)
 {
-	    size_t nodes = 0;
-	        const listint_t *current = head;
-		    int loop_detected = 0;
+	 size_t nodes, index = 0;
 
-		        if (head == NULL)
-				        return 0;
+	  nodes = looped_listint_len(head);
 
-			    nodes = looped_listint_len(head);
+	   if (nodes == 0)
+		    {
+			     for (; head != NULL; nodes++)
+				      {
+					       printf("[%p] %d\n", (void *)head, head->n);
+					        head = head->next;
+						 }
+			      }
 
-			        while (current && (!loop_detected || nodes > 0))
-					    {
-						            printf("[%p] %d\n", (void *)current, current->n);
+	    else
+		     {
+			      for (index = 0; index < nodes; index++)
+				       {
+					        printf("[%p] %d\n", (void *)head, head->n);
+						 head = head->next;
+						  }
 
-							            current = current->next;
-								            nodes--;
+			       printf("-> [%p] %d\n", (void *)head, head->n);
+			        }
 
-									            if (current == head && loop_detected == 0)
-											            {
-													                printf("-> [%p] %d\n", (void *)current, current->n);
-															            loop_detected = 1;
-																            }
-										        }
-
-				    return nodes;
+	     return (nodes);
 }
+
 
