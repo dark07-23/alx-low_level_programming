@@ -12,32 +12,27 @@
  *
  * Return: On success, 1. On failure, -1.
  */
+
 int create_file(const char *filename, char *text_content)
 {
-		int fd, w, len = 0;
+		int k, l, n = 0;
 
 			if (filename == NULL)
 						return (-1);
 
 				if (text_content != NULL)
-							len = strlen(text_content);
+						{
+									for (n = 0; text_content[n];)
+													n++;
+										}
 
-					fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0600);
-						if (fd == -1) {
-									perror("Error creating file");
-											return (-1);
-												}
+					k = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
+						l = write(k, text_content, n);
 
-							if (len > 0) {
-										w = write(fd, text_content, len);
-												if (w == -1) {
-																perror("Error writing to file");
-																			close(fd);
-																						return (-1);
-																								}
-													}
+							if (k == -1 || l == -1)
+										return (-1);
 
-								close(fd);
+								close(k);
 
 									return (1);
 }
